@@ -4,7 +4,7 @@ pipeline{
 
     environment {
         ECR_REGISTRY = "894756847358.dkr.ecr.us-east-1.amazonaws.com"
-        APP_REPO_NAME = "bluehackrafestefano/Jenkins-pipeline-for-phonebook-app-on-docker-swarm"
+        APP_REPO_NAME = "bluehackrafestefano/Jenkins"
         AWS_REGION = "us-east-1"
 
     }
