@@ -4,9 +4,8 @@ pipeline{
 
     environment {
         ECR_REGISTRY = "894756847358.dkr.ecr.us-east-1.amazonaws.com"
-        APP_REPO_NAME = "bluehackrafestefano/Jenkins"
+        APP_REPO_NAME = "rafe/phone-book"
         AWS_REGION = "us-east-1"
-
     }
 
     stages {
