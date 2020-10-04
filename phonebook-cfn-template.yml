@@ -1,14 +1,14 @@
 AWSTemplateFormatVersion: 2010-09-09
-​
+
 Description: |
   This Cloudformation template creates a phonebook application web application developed in Python Flask , deployed with Docker Swarm on Elastic Compute Cloud (EC2) Instances by pulling the app images from the AWS Elastic Container Registry (ECR) repository
-​
+
 Parameters:
   KeyPairName:
     Description: Enter name of your key pair for SSH Connections
     Type: AWS::EC2::KeyPair::KeyName
     ConstraintDescription: Must be one of the existing KeyPairs 
-​
+
 Resources:
   InstanceConnectPolicy:
     Type: "AWS::IAM::ManagedPolicy"
@@ -21,7 +21,7 @@ Resources:
               - ec2-instance-connect:SendSSHPublicKey
             Resource:
               - !Sub arn:aws:ec2:${AWS::Region}:${AWS::AccountId}:instance/*
-            Condition: {"StringEquals": {"aws:ResourceTag/project":"203"}}
+            Condition: {"StringEquals": {"aws:ResourceTag/project":"p204"}}
           - Effect: Allow
             Action:
               - ec2:DescribeInstances
@@ -173,13 +173,13 @@ Resources:
           -o /usr/local/bin/docker-compose
           chmod +x /usr/local/bin/docker-compose
           docker swarm init
+          yum install git -y
           docker service create \
             --name=viz \
             --publish=8080:8080/tcp \
             --constraint=node.role==manager \
             --mount=type=bind,src=/var/run/docker.sock,dst=/var/run/docker.sock \
             dockersamples/visualizer
-          yum install git -y
           curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
           unzip awscliv2.zip
           ./aws/install
@@ -216,7 +216,7 @@ Resources:
   DockerWorker1:
     Type: "AWS::EC2::Instance"
     DependsOn:
-        - DockerManager1
+        - DockerManager2
     Properties:
       LaunchTemplate:
         LaunchTemplateId: !Ref WorkersLT
