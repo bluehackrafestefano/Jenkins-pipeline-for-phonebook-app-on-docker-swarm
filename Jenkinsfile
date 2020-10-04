@@ -6,6 +6,7 @@ pipeline{
         ECR_REGISTRY = "894756847358.dkr.ecr.us-east-1.amazonaws.com"
         APP_REPO_NAME = "rafe/phone-book"
         AWS_REGION = "us-east-1"
+        AWS_STACK_NAME = 
     }
 
     stages {
@@ -42,6 +43,7 @@ pipeline{
         stage('Create Infrastructure for the App'){
             steps {
                 echo 'Creating Docker Swarm'
+                sh 'aws cloudformation create-stack --region ${AWS_REGION}'
             }
         }
         
