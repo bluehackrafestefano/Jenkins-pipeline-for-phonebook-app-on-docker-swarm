@@ -20,13 +20,14 @@ pipeline{
                   --image-tag-mutability MUTABLE \
                   --region ${AWS_REGION}
                 """
-
             }
         }
 
-        stage('Build App Docker Images'){
+        stage('Build App Docker Image'){
             steps {
-                echo 'Building app Docker images'
+                echo 'Building app Docker image'
+                sh 'docker build --force-rm -t "${ECR_REGISTRY}/${APP_REPO_NAME}:latest" .'
+                sh 'docker image ls'
             }
         }
 
@@ -64,6 +65,7 @@ pipeline{
     post {
         always {
             echo 'Deleting all local images'
+            sh 'docker image prune -af'
         }
 
         failure {
