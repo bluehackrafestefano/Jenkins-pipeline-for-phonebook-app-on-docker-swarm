@@ -2,7 +2,7 @@
 
 ## Description
 
-This project aims to create a Jenkins pipeline to deploy the Phonebook Application web application with Docker Swarm on Elastic Compute Cloud (EC2) Instances by pulling the app images from the AWS Elastic Container Registry (ECR) repository.
+This project aims to create a Jenkins pipeline to deploy the Phonebook web application with Docker Swarm on Elastic Compute Cloud (EC2) Instances by pulling the app images from the AWS Elastic Container Registry (ECR) repository.
 
 ## Problem Statement
 
@@ -105,7 +105,7 @@ This project aims to create a Jenkins pipeline to deploy the Phonebook Applicati
 ## Project Skeleton
 
 ```text
-204-jenkins-pipeline-for-phonebook-app-on-docker-swarm (folder)
+Jenkins-pipeline-for-phonebook-app-on-docker-swarm (folder)
 |
 |----readme.md                  # Given to the students (Definition of the project)
 |----phonebook-cfn-template.yml # To be delivered by students (Cloudformation template)
