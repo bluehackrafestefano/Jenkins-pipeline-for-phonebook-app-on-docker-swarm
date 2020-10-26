@@ -249,7 +249,7 @@ Outputs:
       - http://${PublicAddress}:8080
       - PublicAddress: !GetAtt DockerManager1.PublicDnsName
   1stManagerDNSName:
-    Description: Docker Manager 1st DNS Name
+    Description: Docker Manager 1st   DNS Name
     Value: !Sub 
       - ${PublicAddress}
       - PublicAddress: !GetAtt DockerManager1.PublicDnsName
